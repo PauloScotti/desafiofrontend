@@ -1,0 +1,19 @@
+.footer {
+    background-color: $grayColor;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 37px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    span {
+        font-size: 12px;
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,100 @@
+@import '../../styles/variaveis.scss';
+
+.products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 62px;
+    border-radius: 8px;
+    gap: 0 22px;
+
+    .product {
+        display: flex;
+        flex-direction: column;
+        margin: 18px 0 0;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1352);
+        height: 40%;
+        max-height: 332px;
+        width: 100%;
+        max-width: 251px;
+     
+        img {
+            height: 158.88px;
+            object-fit: contain;
+            margin-top: 20px;
+        }
+
+        .name {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-around;
+            padding: 0 14px 14px;
+
+            p {
+                line-height: 19px;
+                color: $black2;
+            }
+        }
+
+        .description {
+            font-family: $fontLight;
+            font-size: 10px;
+            padding: 0 14px 14px;
+        }
+
+        .shopping-bag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $primaryColor;
+            color: white;
+            height: 36px;
+            border-radius: 0 0 8px 8px;
+            cursor: pointer;
+
+            img {
+                height: auto;
+                margin-top: 0;
+            }
+
+            span {
+                margin-left: 16px;
+                font-family: $fontSemiBold;
+                font-size: 14px;
+                line-height: 18px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        flex-direction: row;
+        margin: 2% 0 0;
+        flex-wrap: wrap;
+        max-width: 980px;
+
+        .product {
+            width: 218px;
+            height: 338.88px;
+
+            .name {
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            .description {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            img {
+                margin-top: 10px;
+            }
+        }
+    }
+}

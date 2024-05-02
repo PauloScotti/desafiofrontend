@@ -1,0 +1,75 @@
+@import 'variaveis.scss';
+
+* {
+  font-family: $fontRegular;
+  font-size: 16px;
+}
+
+html, body, #__next {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+.display-none {
+  display: none;
+}
+
+.span-price {
+  background-color: $black3;
+  padding: 5px 9px;
+  border-radius: 5px;
+  color: white;
+  font-family: $fontBold;
+  font-size: 15px;
+  line-height: 15px;
+
+  
+  @media screen and (min-width: $desktopBreakpoint) {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+.close-icon {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 44px;
+  line-height: 15px;
+  background-color: $black;
+  color: $primaryColor;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0;
+  padding: 8px;
+  
+  @media screen and (min-width: $desktopBreakpoint) {
+    color: white;
+    width: 30px;
+    height: 30px;
+    font-size: 28px;
+
+    &.product {
+      width: 8px;
+      height: 8px;
+      color: white;
+      font-size: 14px;
+      line-height: 17px;
+      position: relative;
+      bottom: 46%;
+      left: 96%;
+    }
+  }
+}
+
+@import '../public/fonts/fonts.scss';
+@import '../components/layout/header/header.scss';
+@import '../components/layout/footer/footer.scss';
+@import '../components/principal/principal.scss';
+@import '../components/products/products.scss';
+@import '../node_modules/react-loading-skeleton/dist/skeleton.css';
+@import '../components/teste.scss';

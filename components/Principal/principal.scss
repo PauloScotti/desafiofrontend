@@ -1,0 +1,11 @@
+.principal {
+    display: flex;
+    margin: 53px 0;
+    align-items: center;
+    justify-content: center;
+    
+    @media screen and (min-width: $desktopBreakpoint) {
+        justify-content: center;
+        align-items: center;
+    }
+}
