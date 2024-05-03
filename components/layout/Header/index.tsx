@@ -1,8 +1,8 @@
 import Image from "next/image";
 import cartIcon from '../../../public/icons/cartIcon.svg';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Cart from "@/components";
+import Cart from "../../../components";
 
 
 export default function Header() {

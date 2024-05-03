@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import shoppingBagIcon from '../../public/icons/shoppingBagIcon.svg';
 import Image from 'next/image';
-import { ProductServices } from '@/services/ProductsServices';
+import { ProductServices } from '../../services/ProductsServices';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 
