@@ -1,4 +1,5 @@
 @import 'variaveis.scss';
+@import '../node_modules/react-loading-skeleton/dist/skeleton.css';
 
 * {
   font-family: $fontRegular;
@@ -67,8 +68,7 @@ html, body, #__next {
 }
 
 @import '../public/fonts/fonts.scss';
-@import '../components/layout/header/header.scss';
-@import '../components/layout/footer/footer.scss';
-@import '../components/principal/principal.scss';
-@import '../components/products/products.scss';
-@import '../node_modules/react-loading-skeleton/dist/skeleton.css';
+@import '../components/layout/Header/header.scss';
+@import '../components/layout/Footer/footer.scss';
+@import '../components/Principal/principal.scss';
+@import '../components/Products/products.scss';

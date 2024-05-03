@@ -21,18 +21,14 @@ const ProductComponent: React.FC = () => {
 
     return [];
   });
-  const [productsList, setProductsList] = useState<Product[]>([]);
 
   const { isLoading, error, data } = useQuery({
     queryKey: ['products'],
     queryFn: async (): Promise<ApiResponse> => {
       const response = await productsServices.getProducts()
-      setProductsList(response.data.products)
       return response.data;
     }
   });
-
-  console.log(productsList)
 
   if (isLoading) {
     return (
@@ -74,10 +70,8 @@ const ProductComponent: React.FC = () => {
 
   const addProductsOnBag = async (product: any) => {
     try {
-      const itensOnBag = localStorage.getItem('id')
+      const itensOnBag = localStorage.getItem('id ')
       let quantidade = 0;
-
-      console.log(localStorage.getItem('ids'))
 
       if (itensOnBag === null) {
         localStorage.setItem('ids', product.id);
