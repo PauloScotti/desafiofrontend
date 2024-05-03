@@ -23,9 +23,18 @@ export default function Cart({ toggleMenu }: CartProps, { cart }: CartProductsPr
             // Converter os itens do carrinho de JSON para um array de objetos
             const parsedCartItems = JSON.parse(cartItemsJSON) as Product[];
             setCartItems(parsedCartItems);
-            console.log(parsedCartItems)
         }
     }, []);
+
+    const calculateTotal = () => {
+        let total = 0;
+        // Percorre os itens do carrinho
+        cartItems.forEach(item => {
+            // Multiplica o preço pelo quantidade de cada item e adiciona ao total
+            total += parseInt(item.price) * item.quantity;
+        });
+        return total;
+    };
 
     const removeItemFromCart = (itemId: number) => {
         const updatedCartItems = cartItems.map(item => {
@@ -42,8 +51,7 @@ export default function Cart({ toggleMenu }: CartProps, { cart }: CartProductsPr
     const sumFinalPrice = (itemId: number, price: string) => {
         const updatedCartItems = cartItems.map(item => {
             if (item.id === itemId) {
-                const updatedFinalPrice = finalPrice + parseInt(price)
-                return { ...item, quantity: quantity + 1, finalPrice: JSON.stringify(updatedFinalPrice) };
+                return { ...item, quantity: quantity + 1 };
             }
             return item;
         });
@@ -52,15 +60,16 @@ export default function Cart({ toggleMenu }: CartProps, { cart }: CartProductsPr
         localStorage.setItem('cart', JSON.stringify(updatedCartItems));
 
         setQuantity(quantity + 1)
-        const finalPrice = total + parseInt(price);
-        setTotal(finalPrice);
     }
 
     const subFinalPrice = (itemId: number, price: string) => {
         const updatedCartItems = cartItems.map(item => {
             if (item.id === itemId) {
-                const updatedFinalPrice = finalPrice + parseInt(price)
-                return { ...item, quantity: quantity + 1, finalPrice: JSON.stringify(updatedFinalPrice) };
+                if (quantity <= 1) {
+                    return { ...item, quantity: 1 };
+                } else {
+                    return { ...item, quantity: quantity - 1 };
+                }
             }
             return item;
         });
@@ -68,9 +77,7 @@ export default function Cart({ toggleMenu }: CartProps, { cart }: CartProductsPr
         setCartItems(updatedCartItems);
         localStorage.setItem('cart', JSON.stringify(updatedCartItems));
 
-        setQuantity(quantity + 1)
-        const finalPrice = total + parseInt(price);
-        setTotal(finalPrice);
+        setQuantity(quantity <= 1 ? 1 : quantity - 1)
     }
 
     return (
@@ -118,7 +125,7 @@ export default function Cart({ toggleMenu }: CartProps, { cart }: CartProductsPr
             <div className="final-action">
                 <div className="final-value">
                     <span>Total:</span>
-                    <span>R${total}</span>
+                    <span>R${calculateTotal()}</span>
                 </div>
                 <div className="final-action-button">
                     <span>Finalizar Compra</span>

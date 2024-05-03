@@ -78,15 +78,10 @@ export default function Principal() {
 
         if (itemIndex !== -1) {
             const updatedItems = [...items];
-            var updatedFinalPrice = parseInt(newItem.price);
             updatedItems[itemIndex].quantity += 1;
-            updatedItems[itemIndex].finalPrice = JSON.stringify(updatedFinalPrice);
             setItems(updatedItems);
-            console.log(updatedItems[itemIndex].finalPrice)
         } else {
             newItem.quantity = 1;
-            var updatedFinalPrice = parseInt(newItem.finalPrice) + parseInt(newItem.price)
-            newItem.finalPrice = JSON.stringify(updatedFinalPrice);
             setItems(prevItems => [...prevItems, newItem]);
         }
     };
