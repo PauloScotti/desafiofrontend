@@ -11,26 +11,18 @@ const productsServices = new ProductServices()
 
 export default function Principal() {
 
+    const hasWindow = typeof window !== 'undefined';
     const [items, setItems] = useState<Product[]>(() => {
-        const storedItems = localStorage.getItem('cart');
-        return storedItems ? JSON.parse(storedItems) : [];
+        if (hasWindow) {
+            const storedItems = localStorage.getItem('cart');
+            return storedItems ? JSON.parse(storedItems) : [];
+        }
     });
 
     // Função para salvar o carrinho no localStorage sempre que houver mudanças
     React.useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(items));
     }, [items]);
-
-    const [ids, setIds] = useState(0);
-    const [cart, setCart] = useState<Product[]>(() => {
-        const storagedCart = localStorage.getItem('itens')
-
-        if (storagedCart) {
-            return JSON.parse(storagedCart);
-        }
-
-        return [];
-    });
 
     const { isLoading, error, data } = useQuery({
         queryKey: ['products'],
