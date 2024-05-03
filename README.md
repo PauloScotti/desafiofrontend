@@ -1,6 +1,6 @@
 ## Desafio de FrontEnd
 
-![Foto do site](https://github.com/PauloScotti/desafiofrontend/blob/master/public/desafiofrontend.jpg)
+![Foto do site](https://github.com/PauloScotti/desafiofrontend/blob/master/public/teladesktop.jpg)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -35,6 +35,17 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
     "react-loading-skeleton": "^3.4.0",
     "react-toastify": "^10.0.5",
     "sass": "^1.75.0"
+
+## Imagens do site
+
+### Tela desktop com menu aberto
+
+![Foto do site](https://github.com/PauloScotti/desafiofrontend/blob/master/public/teladesktopMenuAberto.jpg) <br />
+
+### Tela mobile com menu fechado e aberto
+
+![Foto do site](https://github.com/PauloScotti/desafiofrontend/blob/master/public/telaMobile.jpg)
+![Foto do site](https://github.com/PauloScotti/desafiofrontend/blob/master/public/telaMobileMenuAberto.jpg)
 
 ## Deploy on Vercel
 
