@@ -10,10 +10,10 @@ import { toast } from 'react-toastify';
 
 const productsServices = new ProductServices()
 
-const ProductComponent: React.FC = () => {
+const Products: React.FC = () => {
 
   const [cart, setCart] = useState<Product[]>(() => {
-    const storagedCart = localStorage.getItem('cart')
+    const storagedCart = localStorage.getItem('itens')
 
     if (storagedCart) {
       return JSON.parse(storagedCart);
@@ -70,21 +70,19 @@ const ProductComponent: React.FC = () => {
 
   const addProductsOnBag = async (product: any) => {
     try {
-      const itensOnBag = localStorage.getItem('id ')
+      const itensOnBag = localStorage.getItem('itens')
       let quantidade = 0;
 
-      if (itensOnBag === null) {
-        localStorage.setItem('ids', product.id);
-        const counter = {
-          id: product.id,
+      if (!itensOnBag) {
+        const list = {
+          product: product,
           quantity: quantidade + 1
         }
-        localStorage.setItem('cart', JSON.stringify(counter))
+        localStorage.setItem('cart', JSON.stringify(list))
       }
 
       const existsInCard = cart.find(p => p.id === product.id);
 
-      console.log(existsInCard)
       if (existsInCard) {
 
         cart.map(product => {
@@ -121,4 +119,4 @@ const ProductComponent: React.FC = () => {
   );
 }
 
-export default ProductComponent;
+export default Products;
