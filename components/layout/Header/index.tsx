@@ -1,8 +1,8 @@
 import Image from "next/image";
 import cartIcon from '../../../public/icons/cartIcon.svg';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Cart from "../../../components";
+import Cart from "../../Cart";
 
 
 export default function Header() {
@@ -12,6 +12,25 @@ export default function Header() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    const quantityProductsOnBag = () => {
+        const cartItems = localStorage.getItem('cart')
+
+        if (!cartItems) {
+            return 0;
+        }
+
+        const cartLenght = JSON.parse(cartItems) as Product[];
+
+        setCounter(cartLenght.length)
+
+        return cartLenght.length;
+
+    }
+
+    useEffect(() => {
+        quantityProductsOnBag()
+    })
 
     return (
         <div className="header">

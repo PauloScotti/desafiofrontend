@@ -12,6 +12,17 @@ const productsServices = new ProductServices()
 
 const Products: React.FC = () => {
 
+  const [items, setItems] = useState<Product[]>(() => {
+    const storedItems = localStorage.getItem('cart');
+    return storedItems ? JSON.parse(storedItems) : [];
+  });
+
+  // Função para salvar o carrinho no localStorage sempre que houver mudanças
+  React.useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(items));
+  }, [items]);
+
+  const [ids, setIds] = useState(0);
   const [cart, setCart] = useState<Product[]>(() => {
     const storagedCart = localStorage.getItem('itens')
 
@@ -61,6 +72,7 @@ const Products: React.FC = () => {
     createdAt: string;
     updatedAt: string;
     quantity: number;
+    finalPrice: string;
   }
 
   interface ApiResponse {
@@ -68,36 +80,23 @@ const Products: React.FC = () => {
     count: number;
   }
 
-  const addProductsOnBag = async (product: any) => {
-    try {
-      const itensOnBag = localStorage.getItem('itens')
-      let quantidade = 0;
+  const addToCart = (newItem: Product) => {
+    const itemIndex = items.findIndex(item => item.id === newItem.id);
 
-      if (!itensOnBag) {
-        const list = {
-          product: product,
-          quantity: quantidade + 1
-        }
-        localStorage.setItem('cart', JSON.stringify(list))
-      }
-
-      const existsInCard = cart.find(p => p.id === product.id);
-
-      if (existsInCard) {
-
-        cart.map(product => {
-          let novaQuantidade = 0;
-          quantidade = product.quantity + 1;
-          return quantidade
-        })
-      }
-
-
-    } catch (erro: any) {
-      const result = (erro as Error).message;
-      toast.error(result);
+    if (itemIndex !== -1) {
+      const updatedItems = [...items];
+      var updatedFinalPrice = parseInt(newItem.price);
+      updatedItems[itemIndex].quantity += 1;
+      updatedItems[itemIndex].finalPrice = JSON.stringify(updatedFinalPrice);
+      setItems(updatedItems);
+      console.log(updatedItems[itemIndex].finalPrice)
+    } else {
+      newItem.quantity = 1;
+      var updatedFinalPrice = parseInt(newItem.finalPrice) + parseInt(newItem.price)
+      newItem.finalPrice = JSON.stringify(updatedFinalPrice);
+      setItems(prevItems => [...prevItems, newItem]);
     }
-  }
+  };
 
   return (
     <div className='products'>
@@ -109,7 +108,7 @@ const Products: React.FC = () => {
             <span className='span-price'>{'R$' + parseInt(product.price).toLocaleString('pt-BR')}</span>
           </div>
           <span className='description'>{product.description}</span>
-          <div className="shopping-bag" onClick={() => addProductsOnBag(product)}>
+          <div className="shopping-bag" onClick={() => addToCart(product)}>
             <Image src={shoppingBagIcon} alt="Adicionar ao carrinho" />
             <span>{"Comprar"}</span>
           </div>
