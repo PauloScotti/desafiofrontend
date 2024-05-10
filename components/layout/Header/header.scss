@@ -143,6 +143,11 @@
                             height: 16px;
                         }
 
+                        .actionButton {
+                            display: flex;
+                            cursor: pointer;
+                        }
+
                         span {
                             font-size: 20px;
                             text-align: center;

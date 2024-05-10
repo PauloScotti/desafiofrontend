@@ -103,11 +103,15 @@ export default function Cart({ toggleMenu }: CartProps, { cart }: CartProductsPr
                                             </div><div className="selected-item-container">
                                                 <span className={mobile ? 'display-none' : "quantity"}>Qtd</span>
                                                 <div className="selected-item">
-                                                    <span className="action" onClick={(() => subFinalPrice(item.id, item.price))}>-</span>
+                                                    <div className="actionButton" onClick={(() => subFinalPrice(item.id, item.price))}>
+                                                        <span className="action">-</span>
+                                                    </div>
                                                     <div className="line"></div>
                                                     <span>{item.quantity}</span>
                                                     <div className="line"></div>
-                                                    <span className="action" onClick={(() => sumFinalPrice(item.id, item.price))}>+</span>
+                                                    <div className="actionButton" onClick={(() => sumFinalPrice(item.id, item.price))}>
+                                                        <span className="action">+</span>
+                                                    </div>
                                                 </div>
                                                 <span className='span-price'>R${item.price}</span>
                                             </div>
