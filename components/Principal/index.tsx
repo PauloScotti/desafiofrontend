@@ -28,6 +28,7 @@ export default function Principal() {
         queryKey: ['products'],
         queryFn: async (): Promise<ApiResponse> => {
             const response = await productsServices.getProducts()
+            console.log(response)
             return response.data;
         }
     });

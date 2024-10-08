@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 11 128GB",
+      "brand": "Apple",
+      "description": "O iPhone 11 é um smartphone projetado, desenvolvido e comercializado pela Apple. É o IPhone com preço mais baixo da décima terceira geração, sucedendo ao iPhone XR.",
+      "photo": "./images/iphone.png",
+      "price": "3009.00"
+    },
+    {
+      "id": 2,
+      "name": "AirPods",
+      "brand": "Apple",
+      "description": "Os AirPods oferecem uma experiência inigualável em fones de ouvido sem fio, desde a configuração num passe de mágica ao som de alta qualidade.",
+      "photo": "./images/airpods.jpg",
+      "price": "1379.00"
+    },
+    {
+      "id": 3,
+      "name": "MacBook Air",
+      "brand": "Apple",
+      "description": "Lançado no Brasil no começo de março, o MacBook Air M3 tem como missão continuar o bom legado da Apple quando o assunto é notebook leve, premium e com boa autonomia.",
+      "photo": "./images/MacBookAir.png",
+      "price": "6300.40"
+    },
+    {
+      "id": 4,
+      "name": "iPhone 12 64GB",
+      "brand": "Apple",
+      "description": "O iPhone 12 Pro possui uma tela de 6,1 polegadas de Super Retina XDR e sua estrutura é composta por aço inoxidável com parte de trás em vidro matte texturizado.",
+      "photo": "./images/Iphone12.png",
+      "price": "2969.10"
+    },
+    {
+      "id": 5,
+      "name": "Apple Watch Series 7",
+      "brand": "Apple",
+      "description": "O Apple Watch 7 chega custando a partir de US$ 399. O SE continua como opção intermediária, com preços a partir de US$ 279. O Watch 3 “sobreviveu” e permanece como opção mais barata, por US$ 199.",
+      "photo": "./images/AppleWatch.png",
+      "price": "2490.00"
+    }
+  ]
+}
